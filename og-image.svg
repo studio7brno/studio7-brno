@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="concrete">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="4" seed="3" stitchTiles="stitch" result="n"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.85 0 0 0 0 0.83 0 0 0 0 0.80 0 0 0 1 0" in="n"/>
+    </filter>
+  </defs>
+
+  <!-- Concrete background -->
+  <rect width="1200" height="630" fill="#d6d3ce" filter="url(#concrete)"/>
+
+  <!-- Left panel -->
+  <rect width="600" height="630" fill="#d6d3ce" opacity="0.95"/>
+
+  <!-- Gold accent bar -->
+  <rect x="0" y="0" width="8" height="630" fill="#c9a96e"/>
+
+  <!-- Main text -->
+  <text x="300" y="180" font-family="'Cormorant Garamond', serif" font-size="88" font-weight="300" text-anchor="middle" fill="#1a1917" letter-spacing="-1">
+    Studio 7
+  </text>
+
+  <text x="300" y="280" font-family="'Cormorant Garamond', serif" font-size="56" font-weight="300" text-anchor="middle" fill="#9a7640" font-style="italic">
+    Krása v každém detailu
+  </text>
+
+  <!-- Subtext -->
+  <text x="300" y="380" font-family="'Montserrat', sans-serif" font-size="24" text-anchor="middle" fill="#575452" letter-spacing="0.5">
+    Prémiové beauty studio v Brně
+  </text>
+
+  <!-- Services row -->
+  <text x="300" y="460" font-family="'Montserrat', sans-serif" font-size="18" text-anchor="middle" fill="#787572" letter-spacing="0.3">
+    Laminace řas • Manikúra • Maderoterapie
+  </text>
+
+  <!-- Right panel - decorative -->
+  <rect x="600" y="0" width="600" height="630" fill="#d6d3ce" opacity="0.85"/>
+
+  <!-- Large decorative circle -->
+  <circle cx="900" cy="315" r="200" fill="none" stroke="#c9a96e" stroke-width="2" opacity="0.3"/>
+  <circle cx="900" cy="315" r="160" fill="none" stroke="#9a7640" stroke-width="1" opacity="0.5"/>
+
+  <!-- "7" watermark -->
+  <text x="900" y="380" font-family="'Cormorant Garamond', serif" font-size="180" font-weight="300" text-anchor="middle" fill="#c9a96e" opacity="0.1">
+    7
+  </text>
+
+  <!-- Website URL -->
+  <text x="1100" y="600" font-family="'Montserrat', sans-serif" font-size="20" text-anchor="end" fill="#9a7640" font-weight="500">
+    studio7brno.cz
+  </text>
+</svg>
