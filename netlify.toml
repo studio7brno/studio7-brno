@@ -1,0 +1,9 @@
+# Netlify configuration for Studio 7 website
+[build]
+  # No build command needed - it's a static site
+  command = ""
+  publish = "."
+
+[context.production]
+  command = ""
+  publish = "."
