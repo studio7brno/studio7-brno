@@ -213,27 +213,6 @@
     .delay-5 { transition-delay: 0.5s; }
     .delay-6 { transition-delay: 0.6s; }
 
-    /* ─── CURSOR ─────────────────────────────────────────────── */
-    .cursor {
-      width: 10px; height: 10px;
-      background: var(--gold);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.15s ease;
-      mix-blend-mode: difference;
-    }
-    .cursor-ring {
-      width: 36px; height: 36px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      transition: transform 0.4s ease, width 0.3s, height 0.3s, opacity 0.3s;
-      opacity: 0.5;
-    }
 
     /* ─── NAV ────────────────────────────────────────────────── */
     nav {
@@ -258,7 +237,7 @@
       gap: 12px;
       color: #1a1917;
     }
-    .nav-logo-svg { width: 42px; height: 42px; flex-shrink: 0; }
+    .nav-logo-svg { height: 70px; width: auto; flex-shrink: 0; }
     .nav-logo-text {
       font-family: var(--serif);
       font-size: 1.25rem;
@@ -317,6 +296,16 @@
       inset: 0;
       background: rgba(235, 232, 228, 0.55);
     }
+    .hero-photo-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('Fotky/IMG_2316.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.13;
+      filter: saturate(0.4) blur(1px);
+      pointer-events: none;
+    }
     .hero-lines {
       position: absolute;
       inset: 0;
@@ -366,10 +355,11 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.85rem;
-      letter-spacing: 0.35em;
+      font-size: 1.05rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--t3);
+      color: var(--gold-dk);
+      font-weight: 500;
       margin-bottom: 28px;
       opacity: 0;
       animation: fadeUp 1s cubic-bezier(.16,1,.3,1) 0.3s forwards;
@@ -674,17 +664,19 @@
     }
     .about-img-main {
       width: 100%;
-      aspect-ratio: 4/5;
+      aspect-ratio: 3/4;
       background: rgba(190, 186, 180, 0.55);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.13), 0 4px 20px rgba(0,0,0,0.07);
     }
     .about-img-main::after {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 40% 60%, rgba(201,169,110,0.15) 0%, transparent 60%);
+      border: 1px solid rgba(201,169,110,0.25);
+      pointer-events: none;
+      z-index: 2;
     }
     /* Elegant pattern overlay */
     .about-img-pattern {
@@ -728,6 +720,15 @@
       width: 120px; height: 120px;
       border-top: 1px solid var(--gold);
       border-left: 1px solid var(--gold);
+      z-index: 1;
+    }
+    .about-frame-br {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 120px; height: 120px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+      z-index: 1;
     }
     .about-text p {
       font-size: 1.05rem;
@@ -908,32 +909,32 @@
       margin-bottom: 60px;
     }
     .gallery-link {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold-text);
+      color: #fff;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      padding: 12px 28px;
+      border-radius: 50px;
       display: flex;
       align-items: center;
       gap: 10px;
-      transition: gap 0.3s;
+      transition: gap 0.3s, transform 0.3s, box-shadow 0.3s;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(253,29,29,0.25);
     }
-    .gallery-link:hover { gap: 16px; }
+    .gallery-link:hover { gap: 16px; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(253,29,29,0.35); }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(2, 260px);
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
     .gal-item {
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      aspect-ratio: 1;
     }
-    .gal-item:nth-child(1) { grid-column: 1 / 5; grid-row: 1 / 2; }
-    .gal-item:nth-child(2) { grid-column: 5 / 9; grid-row: 1 / 3; }
-    .gal-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1 / 2; }
-    .gal-item:nth-child(4) { grid-column: 1 / 5; grid-row: 2 / 3; }
-    .gal-item:nth-child(5) { grid-column: 9 / 13; grid-row: 2 / 3; }
     .gal-bg {
       width: 100%; height: 100%;
       position: relative;
@@ -976,17 +977,14 @@
       opacity: 0;
       transition: opacity 0.4s;
     }
-    .gal-item:hover .gal-overlay { opacity: 1; }
+    /* gallery hover overlay disabled */
     .gal-overlay-text {
       font-family: var(--serif);
       font-size: 1.1rem;
       color: var(--cream);
       letter-spacing: 0.1em;
       text-align: center;
-      transform: translateY(10px);
-      transition: transform 0.4s ease;
     }
-    .gal-item:hover .gal-overlay-text { transform: translateY(0); }
     .gal-ig-badge {
       position: absolute;
       top: 16px; right: 16px;
@@ -999,6 +997,46 @@
       display: flex;
       align-items: center;
       gap: 6px;
+    }
+
+    /* ─── LIGHTBOX ───────────────────────────────────────────── */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      display: none; align-items: center; justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    #lightbox.active { display: flex; }
+    #lightbox-img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain;
+      border-radius: 2px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+      transition: opacity 0.25s;
+    }
+    #lb-close {
+      position: fixed; top: 20px; right: 28px;
+      font-size: 2.2rem; color: rgba(255,255,255,0.85);
+      cursor: pointer; line-height: 1; background: none; border: none;
+      transition: color 0.2s, transform 0.2s;
+    }
+    #lb-close:hover { color: #fff; transform: scale(1.1); }
+    #lb-prev, #lb-next {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85); font-size: 1.5rem;
+      width: 48px; height: 48px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    #lb-prev { left: 20px; }
+    #lb-next { right: 20px; }
+    #lb-prev:hover, #lb-next:hover { background: rgba(201,169,110,0.5); color: #fff; }
+    #lb-counter {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.5); font-size: 0.78rem; letter-spacing: 0.15em;
+      font-family: var(--sans);
     }
 
     /* ─── CONCRETE TEXTURE ──────────────────────────────────── */
@@ -1213,8 +1251,14 @@
     .reviews-track {
       display: flex;
       gap: 24px;
-      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
+      animation: reviewsScroll 55s linear infinite;
+      width: max-content;
     }
+    @keyframes reviewsScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .reviews-track-wrap:hover .reviews-track { animation-play-state: paused; }
     .review-card {
       flex: 0 0 380px;
       padding: 44px 40px;
@@ -1375,13 +1419,33 @@
 
     /* ─── GIFT VOUCHER ───────────────────────────────────────── */
     #gift {
-      padding: 100px 0;
+      padding: 100px 0 180px;
     }
     .gift-block {
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1px solid rgba(201,169,110,0.2);
-      overflow: hidden;
+      overflow: visible;
+      position: relative;
+    }
+    .gift-floating-photo {
+      position: absolute;
+      bottom: -90px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 220px;
+      z-index: 10;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+      border: 6px solid #fff;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .gift-floating-photo:hover {
+      transform: translateX(-50%) rotate(-1deg) scale(1.03);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.28);
+    }
+    .gift-floating-photo img {
+      width: 100%;
+      display: block;
     }
     .gift-left {
       padding: 80px;
@@ -1439,8 +1503,32 @@
       background: rgba(238, 235, 230, 0.82);
     }
     .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-building {
+      position: relative;
+    }
+    .contact-building img {
+      width: 100%;
+      border-radius: 2px;
       display: block;
-      max-width: 600px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    .contact-building-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      padding: 10px 18px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 600;
     }
     .contact-info { }
     .contact-detail {
@@ -1477,27 +1565,47 @@
       transition: color 0.3s;
     }
     .contact-detail a:hover { color: var(--gold-dk); }
+    /* Highlight phone and instagram */
+    .contact-detail.highlight-contact {
+      background: rgba(201,169,110,0.08);
+      border: 1px solid rgba(201,169,110,0.25);
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .contact-detail.highlight-contact .contact-detail-icon {
+      width: 52px; height: 52px;
+      background: rgba(201,169,110,0.12);
+      border-color: rgba(201,169,110,0.4);
+      font-size: 1.3rem;
+    }
+    .contact-detail.highlight-contact h3 { color: var(--gold-dk); }
+    .contact-detail.highlight-contact p { font-size: 1.2rem; font-weight: 600; }
+    .contact-detail.highlight-contact a { color: var(--gold-dk); }
     .contact-social {
       display: flex;
       gap: 14px;
       margin-top: 44px;
     }
     .social-btn {
-      width: 44px; height: 44px;
-      border: 1px solid rgba(201,169,110,0.25);
+      width: 56px; height: 56px;
+      border: none;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--t3);
-      font-size: 1rem;
+      color: white;
+      font-size: 1.4rem;
       transition: all 0.3s;
       cursor: pointer;
+      box-shadow: 0 4px 16px rgba(253,29,29,0.3);
     }
     .social-btn:hover {
-      background: rgba(201,169,110,0.1);
-      border-color: var(--gold);
-      color: var(--gold-dk);
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(253,29,29,0.45);
     }
+    .social-btn svg { stroke: white; }
     /* Contact form */
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
@@ -1519,13 +1627,12 @@
       max-width: 320px;
       margin-top: 16px;
     }
-    .footer-logo {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      font-weight: 300;
-      letter-spacing: 0.1em;
+    .footer-logo img {
+      height: 50px;
+      width: auto;
+      filter: invert(1) brightness(2);
+      opacity: 0.85;
     }
-    .footer-logo span { color: var(--gold-dk); }
     .footer-col h4 {
       font-size: 0.75rem;
       letter-spacing: 0.3em;
@@ -1599,9 +1706,12 @@
       .nav-links { gap: 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 60px; }
       .about-img-block { max-width: 480px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+      .contact-building { order: -1; }
       .gift-block { grid-template-columns: 1fr; }
+      .gift-floating-photo { display: none; }
       .gift-left, .gift-right { padding: 60px 50px; }
+      #gift { padding-bottom: 60px; }
       .process-steps { grid-template-columns: repeat(2, 1fr); gap: 60px; }
       .process-steps::before { display: none; }
       .hero-visual { display: none; }
@@ -1612,15 +1722,9 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .services-grid { grid-template-columns: 1fr; }
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .gal-item:nth-child(1) { grid-column: 1/2; grid-row: auto; }
-      .gal-item:nth-child(2) { grid-column: 2/3; grid-row: auto; }
-      .gal-item:nth-child(3) { grid-column: 1/2; grid-row: auto; }
-      .gal-item:nth-child(4) { grid-column: 2/3; grid-row: auto; }
-      .gal-item:nth-child(5) { grid-column: 1/3; grid-row: auto; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      #lb-prev { left: 8px; }
+      #lb-next { right: 8px; }
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .about-values { grid-template-columns: 1fr; }
@@ -1629,6 +1733,14 @@
       .hero-h1 { font-size: clamp(2.8rem, 10vw, 4rem); }
       #hero { padding: 100px 0 60px; }
       .pricing-tabs { flex-direction: column; }
+      .price-row { flex-wrap: wrap; gap: 2px; }
+      .price-row-name { font-size: 0.82rem; flex: 1 1 60%; }
+      .price-row-dots { display: none; }
+      .price-row-right { flex: 0 0 auto; }
+      .price-row-value { font-size: 0.95rem; }
+      .price-cat-title { font-size: 1rem; }
+      .price-card { padding: 28px 20px; }
+      .gift-left, .gift-right { padding: 40px 24px; }
     }
 
     /* ─── BACK TO TOP ────────────────────────────────────────── */
@@ -1974,35 +2086,14 @@
   <!-- LOADER -->
   <div id="loader">
     <div class="loader-inner">
-      <svg width="100" height="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"
-           style="opacity:0;animation:fadeIn 0.6s ease 0.2s forwards;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.6));">
-        <defs>
-          <filter id="cF-ld" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" result="noise"/>
-            <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
-            <feBlend in="SourceGraphic" in2="g" mode="multiply" result="b"/>
-            <feComposite in="b" in2="SourceGraphic" operator="in"/>
-          </filter>
-          <filter id="cR-ld" x="-5%" y="-5%" width="110%" height="110%">
-            <feTurbulence type="turbulence" baseFrequency="0.038" numOctaves="2" seed="4" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-        </defs>
-        <circle cx="100" cy="100" r="88" fill="#ccc7bf" filter="url(#cF-ld)"/>
-        <circle cx="100" cy="100" r="88" stroke="#2a2723" stroke-width="2.2" fill="none" filter="url(#cR-ld)"/>
-        <text x="36" y="131" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">STU</text>
-        <text x="103" y="133" text-anchor="middle" font-family="Georgia,serif" font-size="102" font-weight="300" fill="#1e1c18">7</text>
-        <text x="164" y="131" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">DIO</text>
-      </svg>
+      <img src="logo/logo_studio7.svg" width="120" height="120"
+           style="opacity:0;animation:fadeIn 0.6s ease 0.2s forwards;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.3));object-fit:contain;">
       <div class="loader-bar-wrap">
         <div class="loader-bar"></div>
       </div>
     </div>
   </div>
 
-  <!-- CURSOR -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
@@ -2017,31 +2108,7 @@
   <!-- NAV -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">
-      <svg class="nav-logo-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="cF-nav" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" result="noise"/>
-            <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
-            <feBlend in="SourceGraphic" in2="g" mode="multiply" result="b"/>
-            <feComposite in="b" in2="SourceGraphic" operator="in"/>
-          </filter>
-          <filter id="cR-nav" x="-5%" y="-5%" width="110%" height="110%">
-            <feTurbulence type="turbulence" baseFrequency="0.038" numOctaves="2" seed="9" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-        </defs>
-        <!-- Concrete fill circle -->
-        <circle cx="100" cy="100" r="88" fill="#ccc7bf" filter="url(#cF-nav)"/>
-        <!-- Rough hand-painted stroke -->
-        <circle cx="100" cy="100" r="88" stroke="#2a2723" stroke-width="2.2" fill="none" filter="url(#cR-nav)"/>
-        <!-- STU -->
-        <text x="36" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">STU</text>
-        <!-- Dominant 7 -->
-        <text x="103" y="133" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="102" font-weight="300" fill="#1e1c18">7</text>
-        <!-- DIO -->
-        <text x="164" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">DIO</text>
-      </svg>
-      <span class="nav-logo-text">STUDIO <span>7</span></span>
+      <img class="nav-logo-svg" src="logo/logo_studio7.svg" alt="Studio 7 Brno">
     </a>
     <div class="nav-links">
       <a href="#about">O nás</a>
@@ -2060,6 +2127,7 @@
   <main id="main-content">
   <section id="hero">
     <div class="hero-bg"></div>
+    <div class="hero-photo-bg"></div>
     <div class="hero-lines">
       <div class="hero-line"></div>
       <div class="hero-line"></div>
@@ -2073,25 +2141,7 @@
         <div class="hero-pattern">
           <div class="hero-img-overlay"></div>
           <!-- Decorative large logo watermark -->
-          <svg class="hero-logo-mark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter id="cF-hero" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-                <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" result="noise"/>
-                <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
-                <feBlend in="SourceGraphic" in2="g" mode="multiply" result="b"/>
-                <feComposite in="b" in2="SourceGraphic" operator="in"/>
-              </filter>
-              <filter id="cR-hero" x="-5%" y="-5%" width="110%" height="110%">
-                <feTurbulence type="turbulence" baseFrequency="0.040" numOctaves="2" seed="3" result="noise"/>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
-              </filter>
-            </defs>
-            <circle cx="100" cy="100" r="88" fill="#ccc7bf" filter="url(#cF-hero)"/>
-            <circle cx="100" cy="100" r="88" stroke="#2a2723" stroke-width="2.2" fill="none" filter="url(#cR-hero)"/>
-            <text x="36" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">STU</text>
-            <text x="103" y="133" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="102" font-weight="300" fill="#1e1c18">7</text>
-            <text x="164" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">DIO</text>
-          </svg>
+          <img class="hero-logo-mark" src="logo/logo_studio7.svg" alt="">
           <!-- Decorative pattern -->
           <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04" viewBox="0 0 800 900" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -2144,10 +2194,6 @@
       </div>
     </div>
 
-    <div class="scroll-hint">
-      <span>Scrollovat</span>
-      <div class="scroll-line"></div>
-    </div>
   </section>
 
   <!-- MARQUEE STRIP -->
@@ -2180,31 +2226,9 @@
       <div class="about-grid">
         <div class="about-img-block reveal-left">
           <div class="about-frame"></div>
+          <div class="about-frame-br"></div>
           <div class="about-img-main">
-            <div class="about-img-pattern"></div>
-            <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.35;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.4))" width="200" height="200" viewBox="0 0 200 200" fill="none">
-              <defs>
-                <filter id="cF-abt" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.70" numOctaves="4" stitchTiles="stitch" result="noise"/>
-                  <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
-                  <feBlend in="SourceGraphic" in2="g" mode="multiply" result="b"/>
-                  <feComposite in="b" in2="SourceGraphic" operator="in"/>
-                </filter>
-                <filter id="cR-abt" x="-5%" y="-5%" width="110%" height="110%">
-                  <feTurbulence type="turbulence" baseFrequency="0.036" numOctaves="2" seed="12" result="noise"/>
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.7" xChannelSelector="R" yChannelSelector="G"/>
-                </filter>
-              </defs>
-              <circle cx="100" cy="100" r="88" fill="#ccc7bf" filter="url(#cF-abt)"/>
-              <circle cx="100" cy="100" r="88" stroke="#2a2723" stroke-width="2.2" fill="none" filter="url(#cR-abt)"/>
-              <text x="36" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">STU</text>
-              <text x="103" y="133" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="102" font-weight="300" fill="#1e1c18">7</text>
-              <text x="164" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">DIO</text>
-            </svg>
-          </div>
-          <div class="about-img-accent">
-            <div class="big-num">★★★★★</div>
-            <div class="small-text">Hodnocení<br>zákazníků</div>
+            <img src="Fotky/IMG_2316.jpg" alt="Laminace řas – Studio 7 Brno" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
           </div>
         </div>
 
@@ -2276,8 +2300,6 @@
           <p>Metoda řasa na řasu pro dokonale plný a hustý pohled. Každá umělá řasa je precizně nanesena na vaši přirozenou řasu pro nejpřirozenější výsledek.</p>
           <div class="service-tags">
             <span class="service-tag">Klasická metoda</span>
-            <span class="service-tag">Volume</span>
-            <span class="service-tag">Mega Volume</span>
           </div>
           <div class="service-arrow">→</div>
         </div>
@@ -2325,81 +2347,44 @@
         </a>
       </div>
 
-      <div class="gallery-grid">
-        <!-- 1 — Nail Art -->
-        <div class="gal-item reveal">
-          <div class="gal-bg">
-            <img src="Fotky/2719a1cf-9ae2-4ba2-9b5c-348c094e8571_08-large.jpg" alt="Manikúra Nail Art">
-            <div class="gal-inner">
-              <div class="gal-label">Nail Art</div>
-            </div>
-          </div>
-          <div class="gal-overlay"><div class="gal-overlay-text">Manikúra &amp; Nail Art<br><small style="font-size:0.78rem;letter-spacing:0.1em;opacity:0.6">@studio7_brno</small></div></div>
-          <div class="gal-ig-badge" style="display:flex;align-items:center;gap:6px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @studio7_brno
-          </div>
-        </div>
-
-        <!-- 2 — Lashes (tall centre) -->
-        <div class="gal-item reveal delay-1">
-          <div class="gal-bg">
-            <img src="Fotky/1c82da0f-79e5-471d-8882-2c757fb8082e_07-large.jpg" alt="Laminace řas">
-            <div class="gal-inner">
-              <div class="gal-label">Lash Lamination</div>
-            </div>
-          </div>
-          <div class="gal-overlay"><div class="gal-overlay-text">Laminace řas<br><small style="font-size:0.78rem;letter-spacing:0.1em;opacity:0.6">@studio7_brno</small></div></div>
-          <div class="gal-ig-badge" style="display:flex;align-items:center;gap:6px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @studio7_brno
-          </div>
-        </div>
-
-        <!-- 3 — Permanentní řasy -->
-        <div class="gal-item reveal delay-2">
-          <div class="gal-bg">
-            <img src="Fotky/3294a181-538c-48d5-a897-5676ba30ba8b_09-large.jpg" alt="Permanentní řasy">
-            <div class="gal-inner">
-              <div class="gal-label">Extensions</div>
-            </div>
-          </div>
-          <div class="gal-overlay"><div class="gal-overlay-text">Permanentní řasy<br><small style="font-size:0.78rem;letter-spacing:0.1em;opacity:0.6">@studio7_brno</small></div></div>
-          <div class="gal-ig-badge" style="display:flex;align-items:center;gap:6px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @studio7_brno
-          </div>
-        </div>
-
-        <!-- 4 — Maderoterapie -->
-        <div class="gal-item reveal delay-3">
-          <div class="gal-bg">
-            <img src="Fotky/8d25aa3d-ec06-4efd-a2ce-54c2858d2c06_10-large.jpg" alt="Maderoterapie">
-            <div class="gal-inner">
-              <div class="gal-label">Maderoterapie</div>
-            </div>
-          </div>
-          <div class="gal-overlay"><div class="gal-overlay-text">Maderoterapie<br><small style="font-size:0.78rem;letter-spacing:0.1em;opacity:0.6">@studio7_brno</small></div></div>
-          <div class="gal-ig-badge" style="display:flex;align-items:center;gap:6px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @studio7_brno
-          </div>
-        </div>
-
-        <!-- 5 — Studio 7 brand -->
-        <div class="gal-item reveal delay-4">
-          <div class="gal-bg">
-            <img src="Fotky/8f2a1585-9435-4407-a065-b29204efae48_05-large.jpg" alt="Studio 7 Brno">
-            <div class="gal-inner">
-              <div class="gal-label">Studio 7 Brno</div>
-            </div>
-          </div>
-          <div class="gal-overlay"><div class="gal-overlay-text">Studio 7<br><small style="font-size:0.78rem;letter-spacing:0.1em;opacity:0.6">@studio7_brno</small></div></div>
-          <div class="gal-ig-badge" style="display:flex;align-items:center;gap:6px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @studio7_brno
-          </div>
-        </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gal-item reveal" onclick="openLightbox(0)"><div class="gal-bg"><img src="Fotky/IMG_0844.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(1)"><div class="gal-bg"><img src="Fotky/IMG_0964.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(2)"><div class="gal-bg"><img src="Fotky/IMG_1141.jpg" alt="Řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Řasy</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(3)"><div class="gal-bg"><img src="Fotky/IMG_1157.jpg" alt="Nail Art" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Nail Art</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(4)"><div class="gal-bg"><img src="Fotky/IMG_1260.jpg" alt="Manikúra" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Manikúra</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(5)"><div class="gal-bg"><img src="Fotky/IMG_1263.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(6)"><div class="gal-bg"><img src="Fotky/IMG_1559.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(7)"><div class="gal-bg"><img src="Fotky/IMG_2014.jpg" alt="Řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Řasy</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(8)"><div class="gal-bg"><img src="Fotky/IMG_2038.jpg" alt="Nail Art" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Nail Art</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(9)"><div class="gal-bg"><img src="Fotky/IMG_2109.jpg" alt="Manikúra" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Manikúra</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(10)"><div class="gal-bg"><img src="Fotky/IMG_2208.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(11)"><div class="gal-bg"><img src="Fotky/IMG_2316.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(12)"><div class="gal-bg"><img src="Fotky/IMG_2411.jpg" alt="Řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Řasy</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(13)"><div class="gal-bg"><img src="Fotky/IMG_2824.jpg" alt="Nail Art" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Nail Art</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(14)"><div class="gal-bg"><img src="Fotky/IMG_2834.jpg" alt="Manikúra" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Manikúra</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(15)"><div class="gal-bg"><img src="Fotky/IMG_2840.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(16)"><div class="gal-bg"><img src="Fotky/IMG_2895.jpg" alt="Řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Řasy</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(17)"><div class="gal-bg"><img src="Fotky/IMG_3230.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(18)"><div class="gal-bg"><img src="Fotky/IMG_3317.jpg" alt="Nail Art" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Nail Art</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(19)"><div class="gal-bg"><img src="Fotky/IMG_3425.jpg" alt="Manikúra" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Manikúra</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(20)"><div class="gal-bg"><img src="Fotky/IMG_3654.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(21)"><div class="gal-bg"><img src="Fotky/IMG_3782.jpg" alt="Řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Řasy</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(22)"><div class="gal-bg"><img src="Fotky/IMG_4168.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(23)"><div class="gal-bg"><img src="Fotky/IMG_4523.jpg" alt="Nail Art" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Nail Art</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(24)"><div class="gal-bg"><img src="Fotky/IMG_4766.jpg" alt="Manikúra" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Manikúra</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(25)"><div class="gal-bg"><img src="Fotky/IMG_4821.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(26)"><div class="gal-bg"><img src="Fotky/IMG_6155.jpg" alt="Řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Řasy</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(27)"><div class="gal-bg"><img src="Fotky/IMG_8918.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(28)"><div class="gal-bg"><img src="Fotky/IMG_8938.jpg" alt="Studio 7 Brno" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(29)"><div class="gal-bg"><img src="Fotky/2719a1cf-9ae2-4ba2-9b5c-348c094e8571_08-large.jpg" alt="Manikúra Nail Art" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Manikúra &amp; Nail Art</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(30)"><div class="gal-bg"><img src="Fotky/1c82da0f-79e5-471d-8882-2c757fb8082e_07-large.jpg" alt="Laminace řas" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace řas</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(31)"><div class="gal-bg"><img src="Fotky/3294a181-538c-48d5-a897-5676ba30ba8b_09-large.jpg" alt="Permanentní řasy" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Permanentní řasy</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(32)"><div class="gal-bg"><img src="Fotky/8d25aa3d-ec06-4efd-a2ce-54c2858d2c06_10-large.jpg" alt="Maderoterapie" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Maderoterapie</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(33)"><div class="gal-bg"><img src="Fotky/8f2a1585-9435-4407-a065-b29204efae48_05-large.jpg" alt="Studio 7" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal delay-1" onclick="openLightbox(34)"><div class="gal-bg"><img src="Fotky/8f8cc5f0-fe18-4e91-ba1f-eadb2bac6b15_06-large.jpg" alt="Laminace" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Laminace</div></div></div>
+        <div class="gal-item reveal delay-2" onclick="openLightbox(35)"><div class="gal-bg"><img src="Fotky/b0a934c4-4d74-491e-bc55-00952ee280c2_02-large.jpg" alt="Beauty" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
+        <div class="gal-item reveal" onclick="openLightbox(36)"><div class="gal-bg"><img src="Fotky/b8d6c5c0-5bef-4e3a-bc74-b4953c24be13_01-large.jpg" alt="Beauty" loading="lazy"></div><div class="gal-overlay"><div class="gal-overlay-text">Studio 7 Brno</div></div></div>
       </div>
     </div>
   </section>
@@ -2632,29 +2617,6 @@
           </div>
         </div>
 
-        <!-- Logo footer inside card — jako na Instagram story -->
-        <div style="display:flex;flex-direction:column;align-items:center;padding:44px 60px 50px;gap:14px;border-top:1px solid rgba(201,169,110,0.1);">
-          <svg width="90" height="90" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:1;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.5));">
-            <defs>
-              <filter id="cF-pr" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-                <feTurbulence type="fractalNoise" baseFrequency="0.66" numOctaves="4" stitchTiles="stitch" result="noise"/>
-                <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
-                <feBlend in="SourceGraphic" in2="g" mode="multiply" result="b"/>
-                <feComposite in="b" in2="SourceGraphic" operator="in"/>
-              </filter>
-              <filter id="cR-pr" x="-5%" y="-5%" width="110%" height="110%">
-                <feTurbulence type="turbulence" baseFrequency="0.042" numOctaves="2" seed="5" result="noise"/>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.9" xChannelSelector="R" yChannelSelector="G"/>
-              </filter>
-            </defs>
-            <circle cx="100" cy="100" r="88" fill="#ccc7bf" filter="url(#cF-pr)"/>
-            <circle cx="100" cy="100" r="88" stroke="#2a2723" stroke-width="2.2" fill="none" filter="url(#cR-pr)"/>
-            <text x="36" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">STU</text>
-            <text x="103" y="133" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="102" font-weight="300" fill="#1e1c18">7</text>
-            <text x="164" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">DIO</text>
-          </svg>
-          <span style="font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(201,169,110,0.5);">@studio7_brno</span>
-        </div>
 
       </div><!-- /price-card -->
 
@@ -2773,6 +2735,37 @@
               </div>
             </div>
           </div>
+          <!-- Duplicates for infinite scroll -->
+          <div class="review-card">
+            <div class="review-quote">"</div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="review-text">Absolutně spokojená! Laminace řas dopadla krásně, přesně tak jak jsem si přála. Profesionální přístup a milé prostředí.</p>
+            <div class="review-author"><div class="review-avatar">K</div><div><div class="review-name">Karolína M.</div><div class="review-service">Laminace řas</div></div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-quote">"</div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="review-text">Maderoterapie byla úžasná. Cítila jsem se tak uvolněně a výsledky jsou viditelné hned po první návštěvě. Určitě se vrátím!</p>
+            <div class="review-author"><div class="review-avatar">L</div><div><div class="review-name">Lucie P.</div><div class="review-service">Maderoterapie</div></div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-quote">"</div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="review-text">Nehty jsou nádherné! Nail art přesně podle mého přání a drží skvěle. Studio 7 je moje oblíbené místo v Brně.</p>
+            <div class="review-author"><div class="review-avatar">T</div><div><div class="review-name">Tereza V.</div><div class="review-service">Nail Art</div></div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-quote">"</div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="review-text">Permanentní řasy jsou perfektní, vypadají naprosto přirozeně. Skvělá práce a velmi příjemná atmosféra v celém studiu.</p>
+            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Andrea K.</div><div class="review-service">Permanentní řasy</div></div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-quote">"</div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="review-text">Navštěvuji Studio 7 pravidelně a nikdy jsem nebyla zklamaná. Vždy odcházím spokojená a krásná. Vřele doporučuji!</p>
+            <div class="review-author"><div class="review-avatar">M</div><div><div class="review-name">Markéta S.</div><div class="review-service">Pravidelná klientka</div></div></div>
+          </div>
         </div>
       </div>
       <div class="reviews-controls">
@@ -2791,6 +2784,9 @@
   <section id="gift">
     <div class="container">
       <div class="gift-block reveal">
+        <div class="gift-floating-photo">
+          <img src="Fotky/gift_room.jpg" alt="Dárkový poukaz Studio 7">
+        </div>
         <div class="gift-left">
           <div class="section-label">Dárkový poukaz</div>
           <h2 class="section-title" style="margin-top:16px;">
@@ -2840,15 +2836,15 @@
               <p><a href="https://maps.google.com/?q=Branka+1339/81,+Brno-Komin,+624+00" target="_blank">Branka 1339/81<br>624 00 Brno - Komín</a></p>
             </div>
           </div>
-          <div class="contact-detail reveal delay-3">
+          <div class="contact-detail highlight-contact reveal delay-3">
             <div class="contact-detail-icon">📱</div>
             <div>
               <h3>Telefon</h3>
               <p><a href="tel:+420604665740">+420 604 665 740</a></p>
             </div>
           </div>
-          <div class="contact-detail reveal delay-3">
-            <div class="contact-detail-icon">📸</div>
+          <div class="contact-detail highlight-contact reveal delay-3">
+            <div class="contact-detail-icon" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);border:none;font-size:1.3rem;">📸</div>
             <div>
               <h3>Instagram</h3>
               <p><a href="https://www.instagram.com/studio7_brno/" target="_blank">@studio7_brno</a></p>
@@ -2876,6 +2872,11 @@
           </div>
         </div>
 
+        <div class="contact-building reveal delay-2">
+          <img src="Fotky/budova.jpg" alt="Studio 7 Brno – budova">
+          <div class="contact-building-label">Branka 1339/81, Brno</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2885,27 +2886,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
-            <svg width="54" height="54" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 10px rgba(0,0,0,0.4));">
-              <defs>
-                <filter id="cF-ft" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.70" numOctaves="4" stitchTiles="stitch" result="noise"/>
-                  <feColorMatrix type="saturate" values="0" in="noise" result="g"/>
-                  <feBlend in="SourceGraphic" in2="g" mode="multiply" result="b"/>
-                  <feComposite in="b" in2="SourceGraphic" operator="in"/>
-                </filter>
-                <filter id="cR-ft" x="-5%" y="-5%" width="110%" height="110%">
-                  <feTurbulence type="turbulence" baseFrequency="0.040" numOctaves="2" seed="6" result="noise"/>
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
-                </filter>
-              </defs>
-              <circle cx="100" cy="100" r="88" fill="#ccc7bf" filter="url(#cF-ft)"/>
-              <circle cx="100" cy="100" r="88" stroke="#2a2723" stroke-width="2.2" fill="none" filter="url(#cR-ft)"/>
-              <text x="36" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">STU</text>
-              <text x="103" y="133" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="102" font-weight="300" fill="#1e1c18">7</text>
-              <text x="164" y="131" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="700" fill="#1e1c18" letter-spacing="2">DIO</text>
-            </svg>
-            <div class="footer-logo">STUDIO <span>7</span></div>
+          <div style="margin-bottom:16px;">
+            <div class="footer-logo"><img src="logo/logo_studio7.svg" alt="Studio 7 Brno"></div>
           </div>
           <p>Prémiové beauty studio v Brně. Specializujeme se na laminaci řas, permanentní řasy, maderoterapii a nail art. Krása, kterou cítíte.</p>
         </div>
@@ -2951,33 +2933,6 @@
       }, 2000);
     });
 
-    // ── Custom Cursor ──
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx - 5 + 'px';
-      cursor.style.top  = my - 5 + 'px';
-    });
-    function animRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx - 18 + 'px';
-      ring.style.top  = ry - 18 + 'px';
-      requestAnimationFrame(animRing);
-    }
-    animRing();
-    document.querySelectorAll('a, button, .service-card, .gal-item').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        ring.style.width = '60px'; ring.style.height = '60px';
-        ring.style.opacity = '0.3';
-      });
-      el.addEventListener('mouseleave', () => {
-        ring.style.width = '36px'; ring.style.height = '36px';
-        ring.style.opacity = '0.5';
-      });
-    });
 
     // ── Navbar scroll ──
     const navbar = document.getElementById('navbar');
@@ -3066,7 +3021,53 @@
       });
     });
     document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+    // ── Lightbox ──
+    const lbPhotos = Array.from(document.querySelectorAll('#galleryGrid .gal-item img')).map(img => img.src);
+    let lbIdx = 0;
+    function openLightbox(idx) {
+      lbIdx = idx;
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.style.opacity = '0';
+      img.src = lbPhotos[lbIdx];
+      img.onload = () => { img.style.opacity = '1'; };
+      document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + lbPhotos.length;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function closeLightboxOnBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+    function lbNav(dir) {
+      lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length;
+      const img = document.getElementById('lightbox-img');
+      img.style.opacity = '0';
+      img.src = lbPhotos[lbIdx];
+      img.onload = () => { img.style.opacity = '1'; };
+      document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + lbPhotos.length;
+    }
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lbNav(-1);
+      if (e.key === 'ArrowRight') lbNav(1);
+    });
   </script>
+
+  <!-- ═══ LIGHTBOX ══════════════════════════════════════════════ -->
+  <div id="lightbox" onclick="closeLightboxOnBg(event)">
+    <button id="lb-close" onclick="closeLightbox()" aria-label="Zavřít">&#10005;</button>
+    <button id="lb-prev" onclick="lbNav(-1)" aria-label="Předchozí">&#8249;</button>
+    <img id="lightbox-img" src="" alt="">
+    <button id="lb-next" onclick="lbNav(1)" aria-label="Další">&#8250;</button>
+    <div id="lb-counter"></div>
+  </div>
 
 </body>
 </html>
