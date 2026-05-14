@@ -80,8 +80,9 @@
   </script>
 
   <!-- Favicon & Apple Icon -->
-  <link rel="icon" type="image/png" href="og-image.png" />
-  <link rel="apple-touch-icon" href="og-image.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
   <!-- Additional Meta Tags -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -2116,7 +2117,7 @@
       <a href="#gallery">Galerie</a>
       <a href="#pricing">Ceník</a>
       <a href="#reviews">Recenze</a>
-      <a href="https://www.notino.cz/salony/studio-7_2/" target="_blank" class="nav-cta">Rezervovat</a>
+      <a href="https://www.notino.cz/salony/studio-7_2/" target="_blank" rel="noopener noreferrer" class="nav-cta">Rezervovat</a>
     </div>
     <button class="hamburger" onclick="toggleMobile()" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -2166,7 +2167,7 @@
           Prémiové beauty studio v Brně zaměřené na péči o řasy, nehty a tělo. Každý detail je pro nás důležitý — přijďte se přesvědčit.
         </p>
         <div class="hero-actions">
-          <a href="https://www.notino.cz/salony/studio-7_2/" target="_blank" class="btn-primary">
+          <a href="https://www.notino.cz/salony/studio-7_2/" target="_blank" rel="noopener noreferrer" class="btn-primary">
             <span>Rezervovat termín</span>
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M11 1l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
           </a>
@@ -2341,7 +2342,7 @@
           <div class="section-label reveal">Galerie</div>
           <h2 class="section-title reveal delay-1">Naše <em>práce</em></h2>
         </div>
-        <a href="https://www.instagram.com/studio7_brno/" target="_blank" class="gallery-link reveal delay-2">
+        <a href="https://www.instagram.com/studio7_brno/" target="_blank" rel="noopener noreferrer" class="gallery-link reveal delay-2">
           Sledujte @studio7_brno
           <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M11 1l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         </a>
@@ -2620,7 +2621,7 @@
 
       </div><!-- /price-card -->
 
-      <p class="pricing-footer-note reveal">Ceník je platný dle posledního vydání. Pro aktuální info pište na <a href="https://www.instagram.com/studio7_brno/" target="_blank">@studio7_brno</a></p>
+      <p class="pricing-footer-note reveal">Ceník je platný dle posledního vydání. Pro aktuální info pište na <a href="https://www.instagram.com/studio7_brno/" target="_blank" rel="noopener noreferrer">@studio7_brno</a></p>
     </div>
   </section>
 
@@ -2769,13 +2770,13 @@
         </div>
       </div>
       <div class="reviews-controls">
-        <button class="rev-btn" onclick="slideReviews(-1)">←</button>
+        <button class="rev-btn" onclick="slideReviews(-1)" aria-label="Předchozí recenze">←</button>
         <div class="rev-dots" id="revDots">
           <div class="rev-dot active" onclick="goToReview(0)"></div>
           <div class="rev-dot" onclick="goToReview(1)"></div>
           <div class="rev-dot" onclick="goToReview(2)"></div>
         </div>
-        <button class="rev-btn" onclick="slideReviews(1)">→</button>
+        <button class="rev-btn" onclick="slideReviews(1)" aria-label="Další recenze">→</button>
       </div>
     </div>
   </section>
@@ -2785,7 +2786,7 @@
     <div class="container">
       <div class="gift-block reveal">
         <div class="gift-floating-photo">
-          <img src="Fotky/gift_room.jpg" alt="Dárkový poukaz Studio 7">
+          <img src="Fotky/gift_room.jpg" alt="Dárkový poukaz Studio 7" loading="lazy">
         </div>
         <div class="gift-left">
           <div class="section-label">Dárkový poukaz</div>
@@ -2808,7 +2809,7 @@
           <div class="section-label" style="color:rgba(0,0,0,0.5);"><span style="background:rgba(0,0,0,0.2);width:30px;height:1px;display:block;"></span>Speciální nabídka</div>
           <h2 class="section-title">Dárkový<br><em>poukaz</em></h2>
           <p>Překvapte svou blízkou nezapomenutelným zážitkem ve Studiu 7. Poukaz připravíme do 24 hodin.</p>
-          <a href="https://www.notino.cz/salony/studio-7_2/" target="_blank" class="btn-dark">
+          <a href="https://www.notino.cz/salony/studio-7_2/" target="_blank" rel="noopener noreferrer" class="btn-dark">
             Objednat poukaz
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M11 1l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
           </a>
@@ -2826,14 +2827,14 @@
           <h2 class="section-title reveal delay-1">Navštivte nás<br><em>v Brně</em></h2>
           <div class="divider reveal delay-2"></div>
           <p class="reveal delay-2" style="font-size:1.05rem;color:var(--t2);line-height:1.9;margin-bottom:40px;">
-            Jsme tu pro vás. Rezervujte si termín telefonicky, přes Instagram nebo přes kontaktní formulář.
+            Jsme tu pro vás. Rezervujte si termín telefonicky nebo přes Instagram.
           </p>
 
           <div class="contact-detail reveal delay-2">
             <div class="contact-detail-icon">📍</div>
             <div>
               <h3>Adresa</h3>
-              <p><a href="https://maps.google.com/?q=Branka+1339/81,+Brno-Komin,+624+00" target="_blank">Branka 1339/81<br>624 00 Brno - Komín</a></p>
+              <p><a href="https://maps.google.com/?q=Branka+1339/81,+Brno-Komin,+624+00" target="_blank" rel="noopener noreferrer">Branka 1339/81<br>624 00 Brno - Komín</a></p>
             </div>
           </div>
           <div class="contact-detail highlight-contact reveal delay-3">
@@ -2847,7 +2848,7 @@
             <div class="contact-detail-icon" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);border:none;font-size:1.3rem;">📸</div>
             <div>
               <h3>Instagram</h3>
-              <p><a href="https://www.instagram.com/studio7_brno/" target="_blank">@studio7_brno</a></p>
+              <p><a href="https://www.instagram.com/studio7_brno/" target="_blank" rel="noopener noreferrer">@studio7_brno</a></p>
             </div>
           </div>
           <div class="contact-detail reveal delay-4">
@@ -2866,14 +2867,14 @@
           </div>
 
           <div class="contact-social reveal delay-5">
-            <a href="https://www.instagram.com/studio7_brno/" target="_blank" class="social-btn" title="Instagram">
+            <a href="https://www.instagram.com/studio7_brno/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
           </div>
         </div>
 
         <div class="contact-building reveal delay-2">
-          <img src="Fotky/budova.jpg" alt="Studio 7 Brno – budova">
+          <img src="Fotky/budova.jpg" alt="Studio 7 Brno – budova" loading="lazy">
           <div class="contact-building-label">Branka 1339/81, Brno</div>
         </div>
 
@@ -2914,8 +2915,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 Studio 7 Brno. Všechna práva vyhrazena.</p>
-        <p>Sledujte nás: <a href="https://www.instagram.com/studio7_brno/" target="_blank">@studio7_brno</a></p>
+        <p>© 2026 Studio 7 Brno. Všechna práva vyhrazena.</p>
+        <p>Sledujte nás: <a href="https://www.instagram.com/studio7_brno/" target="_blank" rel="noopener noreferrer">@studio7_brno</a></p>
       </div>
     </div>
   </footer>
@@ -2930,7 +2931,7 @@
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader').classList.add('hidden');
-      }, 2000);
+      }, 500);
     });
 
 
@@ -2989,7 +2990,10 @@
 
     // ── Mobile menu ──
     function toggleMobile() {
-      document.getElementById('mobileMenu').classList.toggle('open');
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('hamburger');
+      const isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
     function closeMobile() {
       document.getElementById('mobileMenu').classList.remove('open');
