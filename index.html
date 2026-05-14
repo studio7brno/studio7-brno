@@ -157,6 +157,7 @@
     }
 
     html { scroll-behavior: smooth; font-size: 17px; overflow-x: hidden; }
+    main { overflow-x: hidden; }
 
     body {
       /* Betonová stěrka jako základ — celý web stojí na tomto povrchu */
@@ -1736,6 +1737,8 @@
       .hamburger { display: flex; }
       .services-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .gallery-link { font-size: 0.75rem; padding: 10px 20px; align-self: flex-start; }
       #lb-prev { left: 8px; }
       #lb-next { right: 8px; }
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
