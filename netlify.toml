@@ -4,6 +4,12 @@
 [build]
   publish = "."
 
+# ── Zpracování HTML ───────────────────────────────────────────
+# pretty_urls = false → Netlify NEBUDE přesměrovávat /rasy-brno.html na /rasy-brno.
+# Díky tomu sedí canonical, sitemap i odkazy na stejnou URL (bez 301 skoků).
+[build.processing.html]
+  pretty_urls = false
+
 # ── HTTP Security hlavičky ─────────────────────────────────────
 [[headers]]
   for = "/*"

@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# dočasné soubory
+*.tmp
+_prev_tmp.html
+_faq_preview_tmp.html
