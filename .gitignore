@@ -6,3 +6,6 @@
 *.tmp
 _prev_tmp.html
 _faq_preview_tmp.html
+
+# pracovní složka s obrázky ceníku (není součást webu)
+cenik/
