@@ -1269,6 +1269,79 @@
     }
     .pricing-footer-note a { color: var(--gold-text); }
 
+    /* Storno podmínky — pod ceníkem */
+    .storno-note {
+      max-width: 860px;
+      margin: 28px auto 0;
+      padding: 34px 56px 30px;
+      text-align: center;
+      border: 1px solid rgba(220,174,182,0.30);
+      background: rgba(242,239,235,0.72);
+    }
+    .storno-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--t2);
+      margin-bottom: 18px;
+    }
+    .storno-label::before,
+    .storno-label::after {
+      content: '';
+      width: 44px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .storno-text {
+      font-family: var(--serif);
+      font-size: 1.22rem;
+      line-height: 1.75;
+      color: var(--t1);
+      max-width: 640px;
+      margin: 0 auto 12px;
+    }
+    .storno-mark {
+      color: var(--t1);
+      padding: 0.05em 0.3em;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      background: linear-gradient(100deg,
+        rgba(220,174,182,0) 0.6%, rgba(220,174,182,0.62) 2.2%,
+        rgba(220,174,182,0.40) 6%, rgba(220,174,182,0.34) 92%,
+        rgba(220,174,182,0.64) 97.5%, rgba(220,174,182,0) 99.4%);
+      border-radius: 0.6em 0.25em 0.7em 0.3em;
+    }
+    .storno-thanks {
+      font-size: 0.86rem;
+      color: var(--t3);
+      letter-spacing: 0.02em;
+      margin: 0 auto;
+    }
+    .storno-call {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-text);
+      text-decoration: underline;
+      text-decoration-color: rgba(220,174,182,0.7);
+      text-underline-offset: 5px;
+      line-height: 1.9;
+    }
+    .storno-call:hover { text-decoration-color: var(--gold-text); }
+    @media (max-width: 768px) {
+      .storno-note { padding: 28px 20px 24px; }
+      .storno-text { font-size: 1.12rem; }
+      .storno-label::before, .storno-label::after { width: 26px; }
+    }
+
     /* ─── TESTIMONIALS ───────────────────────────────────────── */
     #reviews {
       padding: 130px 0;
@@ -2770,6 +2843,14 @@
 
 
       </div><!-- /price-card -->
+
+      <!-- ── STORNO PODMÍNKY ───────────────────────── -->
+      <div class="storno-note reveal">
+        <div class="storno-label">Storno podmínky</div>
+        <p class="storno-text">V případě zrušení objednaného termínu méně než 24&nbsp;hodin předem účtujeme <mark class="storno-mark">storno poplatek ve výši 50&nbsp;% z&nbsp;ceny objednané služby.</mark></p>
+        <p class="storno-thanks">Děkujeme za pochopení a ohleduplnost k&nbsp;našemu času i&nbsp;ostatním klientkám.</p>
+        <a class="storno-call" href="tel:+420604665740">Zrušit nebo přesunout termín · 604&nbsp;665&nbsp;740</a>
+      </div>
 
       <p class="pricing-footer-note reveal">Ceník je platný dle posledního vydání. Pro aktuální info pište na <a href="https://www.instagram.com/studio7_brno/" target="_blank" rel="noopener noreferrer">@studio7_brno</a></p>
     </div>
