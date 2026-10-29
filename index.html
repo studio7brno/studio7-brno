@@ -1474,18 +1474,28 @@
     }
     .rev-dots {
       display: flex;
-      gap: 8px;
+      gap: 2px;
     }
+    /* Tlačítko má plochu 24×24 px pro prst, viditelná tečka je uvnitř (::after) */
     .rev-dot {
       border: 0;
       padding: 0;
+      width: 24px; height: 24px;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rev-dot::after {
+      content: '';
       width: 6px; height: 6px;
       border-radius: 3px;
       background: rgba(220,174,182,0.2);
-      cursor: pointer;
       transition: all 0.3s;
     }
-    .rev-dot.active {
+    .rev-dot.active { width: 30px; }
+    .rev-dot.active::after {
       background: var(--gold);
       width: 24px;
     }
