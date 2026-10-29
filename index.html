@@ -56,11 +56,11 @@
       { "@type": "Place", "name": "Brno-Jundrov" }
     ],
     "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday",    "opens": "08:00", "closes": "18:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "08:00", "closes": "16:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "17:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "08:00", "closes": "18:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "08:00", "closes": "19:00" }
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday",    "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "09:00", "closes": "18:00" }
     ],
     "priceRange": "690–2800 Kč",
     "currenciesAccepted": "CZK",
@@ -84,7 +84,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "14"
+      "reviewCount": "24"
     }
   }
   </script>
@@ -105,11 +105,36 @@
   <link rel="preload" as="image" href="Fotky/webp/IMG_2316.webp" fetchpriority="high" />
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <style>
+    /* Písma hostovaná přímo na webu (Google Fonts, licence OFL) — latinka + čeština */
+    @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/cormorant-garamond-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/cormorant-garamond-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Dancing Script';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/dancing-script-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Dancing Script';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/dancing-script-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Dancing Script';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/dancing-script-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Dancing Script';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/dancing-script-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/montserrat-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/montserrat-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/montserrat-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/montserrat-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+    @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
     /* ─── RESET & BASE ───────────────────────────────────────── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1338,6 +1363,7 @@
     .storno-call:hover { text-decoration-color: var(--gold-text); }
     @media (max-width: 768px) {
       .storno-note { padding: 28px 20px 24px; }
+      .review-card { padding: 34px 26px; }
       .storno-text { font-size: 1.12rem; }
       .storno-label::before, .storno-label::after { width: 26px; }
     }
@@ -1353,20 +1379,17 @@
     .reviews-header .section-label::before { display: none; }
     .reviews-track-wrap {
       position: relative;
+      touch-action: pan-y;
     }
     .reviews-track {
       display: flex;
       gap: 24px;
-      animation: reviewsScroll 55s linear infinite;
       width: max-content;
+      transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: transform;
     }
-    @keyframes reviewsScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .reviews-track-wrap:hover .reviews-track { animation-play-state: paused; }
     .review-card {
-      flex: 0 0 380px;
+      flex: 0 0 min(380px, calc(100vw - 48px));
       padding: 44px 40px;
       border: 1px solid rgba(220,174,182,0.20);
       background: rgba(240,237,233,0.82);
@@ -1454,6 +1477,8 @@
       gap: 8px;
     }
     .rev-dot {
+      border: 0;
+      padding: 0;
       width: 6px; height: 6px;
       border-radius: 3px;
       background: rgba(220,174,182,0.2);
@@ -1945,7 +1970,7 @@
     .call-fab svg{width:24px;height:24px}
     @keyframes callPulse{0%{box-shadow:0 8px 24px rgba(19,18,16,.28),0 0 0 0 rgba(220,174,182,.5)}70%{box-shadow:0 8px 24px rgba(19,18,16,.28),0 0 0 16px rgba(220,174,182,0)}100%{box-shadow:0 8px 24px rgba(19,18,16,.28),0 0 0 0 rgba(220,174,182,0)}}
     @media(max-width:768px){.call-fab{left:18px;bottom:18px;width:54px;height:54px}}
-    @media(prefers-reduced-motion:reduce){.call-fab{animation:none}}
+    @media(prefers-reduced-motion:reduce){.call-fab{animation:none}.reviews-track{transition:none}}
 
     .back-top {
       position: fixed;
@@ -2399,11 +2424,11 @@
     <!-- Stats -->
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-num" data-count="80">0</div>
+        <div class="stat-num" data-count="81">0</div>
         <div class="stat-label">Příspěvků</div>
       </div>
       <div class="stat">
-        <div class="stat-num" data-count="421">0</div>
+        <div class="stat-num" data-count="404">0</div>
         <div class="stat-label">Sledujících</div>
       </div>
       <div class="stat">
@@ -2916,19 +2941,19 @@
             <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Anna Rybová</div><div class="review-service">Spokojená klientka · Zdroj: Google</div></div></div>
           </div>
           <!-- Duplicates for infinite scroll -->
-          <div class="review-card">
+          <div class="review-card" aria-hidden="true">
             <div class="review-quote">"</div>
             <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
             <p class="review-text">Do studia chodím na lash lifting a jsem naprosto spokojená. Řasy jsou krásně natočené, delší a přitom úplně přirozené. Efekt vydržel několik týdnů a ráno už téměř nepotřebuji řasenku, výsledek byl perfektní.</p>
             <div class="review-author"><div class="review-avatar">K</div><div><div class="review-name">Kateřina Zavřelová</div><div class="review-service">Lash lifting (laminace řas) · Zdroj: Google</div></div></div>
           </div>
-          <div class="review-card">
+          <div class="review-card" aria-hidden="true">
             <div class="review-quote">"</div>
             <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
             <p class="review-text">Naprostá spokojenost, mohu jen doporučit!!!</p>
             <div class="review-author"><div class="review-avatar">N</div><div><div class="review-name">Nikola Kunická</div><div class="review-service">Manikúra a gellak · Zdroj: Google</div></div></div>
           </div>
-          <div class="review-card">
+          <div class="review-card" aria-hidden="true">
             <div class="review-quote">"</div>
             <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
             <p class="review-text">Naprostá spokojenost. Vždy skvělá práce. Můžu jen doporučit! 🔥</p>
@@ -2939,13 +2964,13 @@
       <div class="reviews-controls">
         <button class="rev-btn" onclick="slideReviews(-1)" aria-label="Předchozí recenze">←</button>
         <div class="rev-dots" id="revDots">
-          <div class="rev-dot active" onclick="goToReview(0)"></div>
-          <div class="rev-dot" onclick="goToReview(1)"></div>
-          <div class="rev-dot" onclick="goToReview(2)"></div>
+          <button class="rev-dot active" onclick="goToReview(0)" aria-label="Recenze 1"></button>
+          <button class="rev-dot" onclick="goToReview(1)" aria-label="Recenze 2"></button>
+          <button class="rev-dot" onclick="goToReview(2)" aria-label="Recenze 3"></button>
         </div>
         <button class="rev-btn" onclick="slideReviews(1)" aria-label="Další recenze">→</button>
       </div>
-      <p style="text-align:center;margin-top:28px;font-size:0.92rem;color:var(--t3);">★ <strong>5,0 na Google</strong> — <a href="https://maps.app.goo.gl/h5ZaMKbE7m6zmmDVA" target="_blank" rel="noopener noreferrer" style="color:var(--gold-dk);">přečtěte si všech 14 recenzí</a></p>
+      <p style="text-align:center;margin-top:28px;font-size:0.92rem;color:var(--t3);">★ <strong>5,0 na Google</strong> — <a href="https://maps.app.goo.gl/h5ZaMKbE7m6zmmDVA" target="_blank" rel="noopener noreferrer" style="color:var(--gold-text);">přečtěte si všech 24 recenzí</a></p>
     </div>
   </section>
 
@@ -2997,9 +3022,9 @@
       { "@type": "Question", "name": "Jak se objednám na termín?", "acceptedAnswer": { "@type": "Answer", "text": "Rezervovat se můžete telefonicky na +420 604 665 740, přes Instagram @studio7_brno, nebo online přes Notino." } },
       { "@type": "Question", "name": "Jak dlouho vydrží laminace řas?", "acceptedAnswer": { "@type": "Answer", "text": "Efekt laminace řas vydrží zpravidla 4 až 6 týdnů — dokud přirozené řasy nepřerostou. Po celou dobu si řasy drží zdvižený tvar a tmavší barvu bez nutnosti každodenní úpravy." } },
       { "@type": "Question", "name": "Co je maderoterapie a na co pomáhá?", "acceptedAnswer": { "@type": "Answer", "text": "Maderoterapie je masáž těla pomocí speciálních dřevěných nástrojů. Stimuluje lymfatický systém, pomáhá odbourávat celulitidu, modeluje postavu a přináší hlubokou relaxaci. Nejlepších výsledků se dosahuje v sériích." } },
-      { "@type": "Question", "name": "Bolí maderoterapie?", "acceptedAnswer": { "@type": "Answer", "text": "Ne, maderoterapie je příjemná procedura. Intenzitu masáže vždy přizpůsobíme vašemu pohodlí. Po ošetření můžete cítít lehké prohřátí a uvolnění." } },
+      { "@type": "Question", "name": "Bolí maderoterapie?", "acceptedAnswer": { "@type": "Answer", "text": "Ne, maderoterapie je příjemná procedura. Intenzitu masáže vždy přizpůsobíme vašemu pohodlí. Po ošetření můžete cítit lehké prohřátí a uvolnění." } },
       { "@type": "Question", "name": "Jak často se chodí na doplnění permanentních řas?", "acceptedAnswer": { "@type": "Answer", "text": "Doplnění permanentních řas doporučujeme po 2 až 4 týdnech, podle toho, jak rychle vám rostou vlastní řasy a jak o ně pečujete." } },
-      { "@type": "Question", "name": "Jak pečovat o nové řasy a manikúru?", "acceptedAnswer": { "@type": "Answer", "text": "Prvních 24 hodin po aplikaci řas se vyhněte vodě, páře a sauně. Řasy nečešte mokré a nemněte si oči. U manikúry s gel lakem doporučujeme používat rukavice při domácích pracích." } },
+      { "@type": "Question", "name": "Jak pečovat o nové řasy a manikúru?", "acceptedAnswer": { "@type": "Answer", "text": "Prvních 24 hodin po aplikaci řas se vyhněte vodě, páře a sauně. Řasy nečešte mokré a nemněte si oči. U manikúry s gellakem doporučujeme používat rukavice při domácích pracích." } },
       { "@type": "Question", "name": "Nabízíte dárkové poukazy?", "acceptedAnswer": { "@type": "Answer", "text": "Ano. Dárkový poukaz lze uplatnit na všechny naše služby, má platnost 6 měsíců od zakoupení a připravíme ho do 24 hodin v elegantním dárkovém balení." } },
       { "@type": "Question", "name": "Dá se platit kartou?", "acceptedAnswer": { "@type": "Answer", "text": "Ano, u nás zaplatíte hotově i platební kartou." } }
     ]
@@ -3036,7 +3061,7 @@
         </details>
         <details class="faq-item">
           <summary>Bolí maderoterapie?</summary>
-          <div class="faq-answer">Ne, maderoterapie je příjemná procedura. Intenzitu masáže vždy přizpůsobíme vašemu pohodlí. Po ošetření můžete cítít lehké prohřátí a uvolnění.</div>
+          <div class="faq-answer">Ne, maderoterapie je příjemná procedura. Intenzitu masáže vždy přizpůsobíme vašemu pohodlí. Po ošetření můžete cítit lehké prohřátí a uvolnění.</div>
         </details>
         <details class="faq-item">
           <summary>Jak často se chodí na doplnění permanentních řas?</summary>
@@ -3044,7 +3069,7 @@
         </details>
         <details class="faq-item">
           <summary>Jak pečovat o nové řasy a manikúru?</summary>
-          <div class="faq-answer">Prvních 24 hodin po aplikaci řas se vyhněte vodě, páře a sauně. Řasy nečešte mokré a nemněte si oči. U manikúry s gel lakem doporučujeme používat rukavice při domácích pracích a nehty nezatěžovat jako nástroj.</div>
+          <div class="faq-answer">Prvních 24 hodin po aplikaci řas se vyhněte vodě, páře a sauně. Řasy nečešte mokré a nemněte si oči. U manikúry s gellakem doporučujeme používat rukavice při domácích pracích a nehty nezatěžovat jako nástroj.</div>
         </details>
         <details class="faq-item">
           <summary>Nabízíte dárkové poukazy?</summary>
@@ -3103,11 +3128,11 @@
             <div>
               <h3>Otevírací doba</h3>
               <p>
-                <strong>Pondělí:</strong> 8:00 – 18:30<br>
-                <strong>Úterý:</strong> 8:00 – 16:30<br>
-                <strong>Středa:</strong> 8:00 – 17:00<br>
-                <strong>Čtvrtek:</strong> 8:00 – 18:30<br>
-                <strong>Pátek:</strong> 8:00 – 19:00<br>
+                <strong>Pondělí:</strong> 9:00 – 18:00<br>
+                <strong>Úterý:</strong> 9:00 – 18:00<br>
+                <strong>Středa:</strong> 9:00 – 18:00<br>
+                <strong>Čtvrtek:</strong> 9:00 – 18:00<br>
+                <strong>Pátek:</strong> 9:00 – 18:00<br>
                 <small style="opacity:0.6"><strong>Sobota–Neděle:</strong> Zavřeno</small>
               </p>
             </div>
@@ -3219,27 +3244,65 @@
     }
 
     // ── Reviews slider ──
+    // 3 recenze + 3 kopie: po poslední recenzi se plynule pokračuje kopií první
+    // a pak se bez animace skočí zpět na začátek (nekonečná smyčka).
     let revIdx = 0;
     const track = document.getElementById('reviewsTrack');
     const dots = document.querySelectorAll('.rev-dot');
+    const REV_N = dots.length;
+    function revStep() {
+      const card = track.querySelector('.review-card');
+      return card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 24);
+    }
+    function revJump(i) {
+      track.style.transition = 'none';
+      revIdx = i;
+      track.style.transform = `translateX(-${revIdx * revStep()}px)`;
+      void track.offsetWidth;
+      track.style.transition = '';
+    }
     function updateReviews() {
-      const cardW = 380 + 24;
-      track.style.transform = `translateX(-${revIdx * cardW}px)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === revIdx % dots.length));
+      track.style.transform = `translateX(-${revIdx * revStep()}px)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === revIdx % REV_N));
     }
-    function slideReviews(dir) {
-      const max = document.querySelectorAll('.review-card').length - 1;
-      revIdx = Math.max(0, Math.min(max, revIdx + dir));
+    function revMove(dir) {
+      if (revIdx >= REV_N) revJump(revIdx - REV_N);   // z kopie zpět na originál, ať pás nikdy nepřeteče
+      if (dir < 0 && revIdx === 0) revJump(REV_N);
+      revIdx += dir;
       updateReviews();
     }
-    function goToReview(i) { revIdx = i; updateReviews(); }
+    function slideReviews(dir) { revMove(dir); restartReviews(); }
+    function goToReview(i) {
+      if (revIdx >= REV_N) revJump(revIdx - REV_N);
+      revIdx = i; updateReviews(); restartReviews();
+    }
+    track.addEventListener('transitionend', e => {
+      if (e.target === track && revIdx >= REV_N) revJump(revIdx - REV_N);
+    });
+    window.addEventListener('resize', () => revJump(revIdx % REV_N));
 
-    // Auto-advance reviews
-    setInterval(() => {
-      const max = document.querySelectorAll('.review-card').length - 1;
-      revIdx = revIdx >= max ? 0 : revIdx + 1;
-      updateReviews();
-    }, 5000);
+    // Automatický posun — zastaví se při najetí myší, při psaní klávesnicí a na skryté záložce
+    let revTimer = null, revPaused = false;
+    const revReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function restartReviews() {
+      clearInterval(revTimer);
+      if (revReduce) return;
+      revTimer = setInterval(() => { if (!revPaused && !document.hidden) revMove(1); }, 5000);
+    }
+    const revWrap = document.querySelector('.reviews-track-wrap');
+    revWrap.addEventListener('mouseenter', () => revPaused = true);
+    revWrap.addEventListener('mouseleave', () => revPaused = false);
+    document.getElementById('reviews').addEventListener('focusin', () => revPaused = true);
+    document.getElementById('reviews').addEventListener('focusout', () => revPaused = false);
+    // Posun prstem na mobilu
+    let revX = null;
+    revWrap.addEventListener('touchstart', e => { revX = e.touches[0].clientX; }, { passive: true });
+    revWrap.addEventListener('touchend', e => {
+      if (revX === null) return;
+      const dx = e.changedTouches[0].clientX - revX; revX = null;
+      if (Math.abs(dx) > 40) slideReviews(dx < 0 ? 1 : -1);
+    }, { passive: true });
+    restartReviews();
 
     // ── Mobile menu ──
     function toggleMobile() {
